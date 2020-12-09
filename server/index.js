@@ -131,5 +131,5 @@ app
     res.end("Nothing to see here!");
   })
   .listen(process.env.PORT || 9001, () => {
-    console.log("listenin on 9001");
+    console.log("listenin on " + process.env.PORT);
   });
