@@ -7,7 +7,7 @@ export const roomId = writable("");
 let socket: WebSocket;
 
 export function startGame({ roomId = null, isProtected = false }) {
-  socket = new WebSocket("ws://localhost:9001");
+  socket = new WebSocket(globalThis.wsUrl);
   socket.onopen = function () {
     socket.send(
       JSON.stringify([
