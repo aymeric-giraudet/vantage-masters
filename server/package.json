@@ -1,0 +1,10 @@
+{
+  "name": "Projects",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cuid": "^2.1.8",
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v18.8.0"
+  }
+}
