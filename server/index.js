@@ -130,6 +130,6 @@ app
   .any("/*", (res, req) => {
     res.end("Nothing to see here!");
   })
-  .listen(9001, () => {
+  .listen(process.env.PORT || 9001, () => {
     console.log("listenin on 9001");
   });
