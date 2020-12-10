@@ -107,12 +107,9 @@ app
     maxBackpressure: 1024,
     open: (ws) => {},
     message: (ws, message, isBinary) => {
-      const [event, payload] = JSON.parse(
-        new TextDecoder("utf-8").decode(message)
-      );
+      const [event, payload] = JSON.parse(Buffer.from(message).toString());
       eventHandlers[event](ws, payload);
     },
-    drain: (ws) => {},
     close: (ws, code, message) => {
       const room = Rooms.getRoom(ws.roomId);
       if (ws.userId && room) {
