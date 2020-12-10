@@ -7,8 +7,12 @@ export const roomId = writable("");
 let socket: WebSocket;
 
 export function startGame({ roomId = null, isProtected = false }) {
+  let interval;
   socket = new WebSocket(globalThis.wsUrl);
   socket.onopen = function () {
+    interval = setInterval(() => {
+      socket.send(JSON.stringify(["keepAlive"]));
+    }, 10000);
     socket.send(
       JSON.stringify([
         "matchmaking",
@@ -19,6 +23,9 @@ export function startGame({ roomId = null, isProtected = false }) {
       console.log(data);
       const [event, payload] = JSON.parse(data);
       eventHandlers[event](payload);
+    };
+    socket.onclose = function () {
+      clearInterval(interval);
     };
   };
 }

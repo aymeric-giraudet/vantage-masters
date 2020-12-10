@@ -41,27 +41,27 @@
   </div>
   <div class="board">
     <div class="row">
-      <Hexagon />
-      <Hexagon />
-      <Hexagon />
+      <Hexagon state="opponent" />
+      <Hexagon state="opponent" />
+      <Hexagon state="opponent" />
     </div>
     <div class="row">
-      <Hexagon />
-      <Hexagon />
-      <Hexagon />
-      <Hexagon />
+      <Hexagon state="opponent" />
+      <Hexagon state="opponent" />
+      <Hexagon state="opponent" />
+      <Hexagon state="opponent" />
     </div>
     <hr />
     <div class="row">
-      <Hexagon />
-      <Hexagon />
-      <Hexagon />
-      <Hexagon />
+      <Hexagon state="player" />
+      <Hexagon state="player" />
+      <Hexagon state="player" />
+      <Hexagon state="player" />
     </div>
     <div class="row">
-      <Hexagon />
-      <Hexagon />
-      <Hexagon />
+      <Hexagon state="player" />
+      <Hexagon state="player" />
+      <Hexagon state="player" />
     </div>
   </div>
   <div class="hand player">

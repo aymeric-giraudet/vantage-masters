@@ -94,6 +94,7 @@ function matchmaking(ws, { userName, isProtected, roomId }) {
 
 const eventHandlers = {
   matchmaking: matchmaking,
+  keepAlive: () => {},
 };
 
 const app = uws.App();
@@ -102,7 +103,7 @@ app
   .ws("/*", {
     compression: uws.SHARED_COMPRESSOR,
     maxPayloadLength: 16 * 1024 * 1024,
-    idleTimeout: 0,
+    idleTimeout: 60,
     maxBackpressure: 1024,
     open: (ws) => {},
     message: (ws, message, isBinary) => {
