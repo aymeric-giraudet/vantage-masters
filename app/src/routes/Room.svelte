@@ -1,12 +1,15 @@
 <script lang="ts">
-  import { started, startGame } from '../gameStore'
+  import { onDestroy } from "svelte";
+  import { started, startGame, closeSocket } from "../gameStore";
 
-  export let location
-  export let id
+  export let location;
+  export let id;
 
   if (!location.state) {
-    startGame({ roomId: id })
+    startGame({ roomId: id });
   }
+
+  onDestroy(closeSocket);
 </script>
 
 <main>

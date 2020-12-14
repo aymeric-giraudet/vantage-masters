@@ -5,9 +5,9 @@ export const started = writable(false);
 export const roomId = writable("");
 
 let socket: WebSocket;
+let interval: number;
 
 export function startGame({ roomId = null, isProtected = false }) {
-  let interval;
   socket = new WebSocket(globalThis.wsUrl);
   socket.onopen = function () {
     interval = setInterval(() => {
@@ -28,6 +28,11 @@ export function startGame({ roomId = null, isProtected = false }) {
       clearInterval(interval);
     };
   };
+}
+
+export function closeSocket() {
+  clearInterval(interval);
+  socket.close();
 }
 
 const eventHandlers = {

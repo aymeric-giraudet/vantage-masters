@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Card from './Card.svelte'
-  import Hexagon from './Hexagon.svelte'
+  import Card from "./Card.svelte";
+  import Hexagon from "./Hexagon.svelte";
 </script>
 
 <style>
